@@ -12,6 +12,7 @@ const isEditing = ref(false);
 const listComponent = ref(null);
 const isReadOnly = ref(false);
 
+// Para un nuevo formulario
 const openNewForm = () => {
   selectedAppointment.value = null;
   isEditing.value = false;
@@ -19,6 +20,7 @@ const openNewForm = () => {
   isReadOnly.value = false;
 };
 
+// Recogemos la data de la cita seleccionada para editar
 const openEditForm = (appointment) => {
   selectedAppointment.value = appointment;
   isEditing.value = true;
@@ -26,6 +28,7 @@ const openEditForm = (appointment) => {
   isReadOnly.value = false;
 };
 
+// Recogemos data pero solo para visualizar
 const openViewForm = (appointment) => {
   selectedAppointment.value = appointment;
   isEditing.value = false;

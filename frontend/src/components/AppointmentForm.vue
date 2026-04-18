@@ -52,6 +52,7 @@ const handleSubmit = async () => {
     }
 };
 
+// Función para verificar conflictos en tiempo real mientras se editan los campos relevantes
 const checkLiveConflicts = async () => {
     if (props.isReadOnly) {
         conflicts.value = [];
@@ -74,6 +75,7 @@ const checkLiveConflicts = async () => {
     }
 };
 
+// Observamos los campos relevantes para cambios y verificamos conflictos en tiempo real, pero solo si no es de solo lectura
 watch([() => form.value.doctorName, () => form.value.date, () => form.value.startTime, () => form.value.endTime], () => {
     if (props.isReadOnly) return; 
     checkLiveConflicts();

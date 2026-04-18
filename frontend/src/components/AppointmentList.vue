@@ -19,6 +19,7 @@ watch(() => filters.value.doctorName, () => {
     }, 500);
 });
 
+// Funcion para cargar las citas desde el backend, aplicando los filtros y la paginacion
 const fetchAppointments = async () => {
     try {
         const params = {
@@ -37,6 +38,7 @@ const fetchAppointments = async () => {
     }
 };
 
+// Funcion para cambiar de pagina, actualiza el numero de pagina y recarga las citas
 const changePage = (page) => {
     if (page >= 1 && page <= totalPages.value) {
         currentPage.value = page;
@@ -44,6 +46,7 @@ const changePage = (page) => {
     }
 };
 
+// Funcion para formatear la fecha en el template
 const confirmDelete = async (id) => {
     const result = await Swal.fire({
         title: '¿Estás seguro?',
@@ -74,6 +77,7 @@ const confirmDelete = async (id) => {
     }
 };
 
+// Funcion para obtener la configuracion de estilo y texto segun el estado de la cita, se usa en el template para mostrar un badge con el estado
 const getStatusClass = (status) => {
     const configs = {
         scheduled: {
